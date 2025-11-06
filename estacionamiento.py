@@ -110,21 +110,21 @@ while True:
 
         # --- Actualizar contadores dinámicos ---
         # Autos
-        entered_auto = [c for c in current_auto if not vehicle_exists(tracked_vehicles["auto"], c)]
+        entered_auto = [c for c in current_auto if vehicle_exists(tracked_vehicles["auto"], c)]
         exited_auto = [c for c in tracked_vehicles["auto"] if not vehicle_exists(current_auto, c)]
         available_autos -= len(entered_auto)
         available_autos += len(exited_auto)
         available_autos = max(0, min(total_autos, available_autos))
 
         # Camiones
-        entered_camion = [c for c in current_camion if not vehicle_exists(tracked_vehicles["camion"], c)]
+        entered_camion = [c for c in current_camion if vehicle_exists(tracked_vehicles["camion"], c)]
         exited_camion = [c for c in tracked_vehicles["camion"] if not vehicle_exists(current_camion, c)]
         available_camiones -= len(entered_camion)
         available_camiones += len(exited_camion)
         available_camiones = max(0, min(total_camiones, available_camiones))
 
         # Motos
-        entered_moto = [c for c in current_moto if not vehicle_exists(tracked_vehicles["moto"], c)]
+        entered_moto = [c for c in current_moto if vehicle_exists(tracked_vehicles["moto"], c)]
         exited_moto = [c for c in tracked_vehicles["moto"] if not vehicle_exists(current_moto, c)]
         available_motos -= len(entered_moto)
         available_motos += len(exited_moto)
@@ -175,3 +175,4 @@ client.disconnect()
 pipeline.stop()
 cv2.destroyAllWindows()
 print("Sistema cerrado correctamente")
+
