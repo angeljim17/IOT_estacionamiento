@@ -1,9 +1,9 @@
-import numpy as np
-from ultralytics import YOLO
-import cv2
-import pyrealsense2 as rs
+import numpy as np #cálculos matemáticos y manejo de arreglos.
+from ultralytics import YOLO #modelo de IA que detecta objetos.
+import cv2 #muestra imágenes y dibuja rectángulos, textos, etc.
+import pyrealsense2 as rs #obtiene imágenes desde la cámara Intel RealSense D415.
 import time
-import paho.mqtt.client as mqtt
+import paho.mqtt.client as mqtt #envía los resultados (conteo) a un broker MQTT.
 from collections import deque
 
 # --- MQTT Configuración ---
@@ -175,4 +175,5 @@ client.disconnect()
 pipeline.stop()
 cv2.destroyAllWindows()
 print("Sistema cerrado correctamente")
+
 
